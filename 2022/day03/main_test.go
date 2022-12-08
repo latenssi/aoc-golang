@@ -22,10 +22,10 @@ func Test(t *testing.T) {
 		part  int
 		want  int
 	}{
-		{"test", testInput, 1, 15},
-		{"actual", input, 1, 13526},
-		{"test", testInput, 2, 12},
-		{"actual", input, 2, 14204},
+		{"test", testInput, 1, 157},
+		{"actual", input, 1, 8515},
+		{"test", testInput, 2, 70},
+		{"actual", input, 2, 2434},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
