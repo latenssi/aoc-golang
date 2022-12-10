@@ -10,13 +10,19 @@ func Day(input string, part int) int {
 	values := []int{}
 
 	for _, g := range strings.Split(input, "\n\n") {
+		if len(g) == 0 {
+			continue
+		}
 		gValue := 0
-		for _, val := range strings.Split(strings.TrimSpace(g), "\n") {
-			if v, err := strconv.Atoi(val); err != nil {
-				panic(err)
-			} else {
-				gValue += v
+		for _, val := range strings.Split(g, "\n") {
+			if len(val) == 0 {
+				continue
 			}
+			v, err := strconv.Atoi(val)
+			if err != nil {
+				panic(err)
+			}
+			gValue += v
 		}
 		values = append(values, gValue)
 	}
