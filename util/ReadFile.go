@@ -1,6 +1,9 @@
 package util
 
-import "os"
+import (
+	"os"
+	"strings"
+)
 
 func ReadFile(path string, target *string) (string, error) {
 	f, err := os.ReadFile(path)
@@ -15,4 +18,8 @@ func ReadFile(path string, target *string) (string, error) {
 	}
 
 	return s, nil
+}
+
+func Lines(input string) []string {
+	return strings.Split(input, "\n")
 }

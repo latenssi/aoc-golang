@@ -3,6 +3,8 @@ package main
 import (
 	"strconv"
 	"strings"
+
+	"github.com/latenssi/aoc-golang/util"
 )
 
 type Pair struct {
@@ -30,12 +32,12 @@ func (p PairPart) Ovelaps(o PairPart) bool {
 
 func Day(input string, part int) int {
 	pairs := make([]Pair, 0)
-	for _, pair := range strings.Split(input, "\n") {
-		if len(pair) == 0 {
+	for _, line := range util.Lines(input) {
+		if len(line) == 0 {
 			continue
 		}
 		pp := make([]int, 0, 4)
-		for _, parts := range strings.Split(pair, ",") {
+		for _, parts := range strings.Split(line, ",") {
 			for _, part := range strings.Split(parts, "-") {
 				v, err := strconv.Atoi(part)
 				if err != nil {
